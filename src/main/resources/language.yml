@@ -1,0 +1,8 @@
+language:
+  # 变量：${MONEY}为指令所需支付的“金币”
+  #       ${NOW}为玩家拥有的“金币”
+
+  #金钱不足
+  not_enough: "[PaidCommand] > §a§b金币不足，指令售价${MONEY}枚金币，您的金币：${NOW}"
+  #成功购买使用指令
+  success: "[PaidCommand] > §b成功使用指令，花费${MONEY}枚金币，你现有金币：${NOW}枚"

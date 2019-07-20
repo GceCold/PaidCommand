@@ -1,0 +1,5 @@
+PaidCommand:
+  Version: 1.0.0
+  #是否开启付费指令功能
+  Paid_Enable: true
+

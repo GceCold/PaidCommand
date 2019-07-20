@@ -1,0 +1,18 @@
+name: PaidCommand
+version: 1.0.0
+main: net.udgame.gdenga.paidcommand.PaidCommand
+api-version: 1.13
+depend: [Vault]
+authors: [gdenga]
+description: 付费指令
+website: www.gdenga.top
+commands:
+  pc:
+    usage: /pc help
+permissions:
+  pc.admin:
+    description: 付费指令操作权限
+    default: op
+  pc.free:
+    description: 免费全部付费指令权限
+    default: op

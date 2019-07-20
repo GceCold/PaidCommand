@@ -1,0 +1,6 @@
+Paid:
+  Command:
+    gamemode:
+      cost: 100
+      ignore_player:
+        - gdenga
