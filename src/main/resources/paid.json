@@ -1,0 +1,16 @@
+[
+  {
+    "name": "gamemode",
+    "type": "coin",
+    "cost": 100,
+    "isOp": true,
+    "ignore": ["ice-cold"]
+  },
+  {
+    "name": "back",
+    "type": "point",
+    "cost": 100,
+    "isOp": false,
+    "ignore": ["ice-cold"]
+  }
+]

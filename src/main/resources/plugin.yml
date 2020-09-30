@@ -1,0 +1,17 @@
+name: Paidcommand
+version: ${project.version}
+main: ltd.icecold.paidcommand.Paidcommand
+depend: [Vault]
+authors: [icecold]
+description: 付费指令
+website: www.ice-cold.ltd
+commands:
+  pc:
+    usage: /pc help
+permissions:
+  pc.admin:
+    description: 付费指令操作权限
+    default: op
+  pc.free:
+    description: 免费全部付费指令权限
+    default: op
