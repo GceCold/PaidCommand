@@ -20,7 +20,6 @@ public class Add extends BaseCommand {
             sender.sendMessage("[PaidCommand] > §c您没有权限");
             return;
         }
-        System.out.println(args.size());
         if ("paid".equals(args.get(0))){
             if (args.size() < 4){
                 Helper.sendMainHelp(sender);
@@ -47,9 +46,7 @@ public class Add extends BaseCommand {
             }
             Config.addPaid(paidBean);
             sender.sendMessage("[PaidCommand] > §b添加成功");
-        }
-
-        if ("player".equals(args.get(0))){
+        }else if ("player".equals(args.get(0))){
             if (args.size() < 3){
                 Helper.sendMainHelp(sender);
                 return;
@@ -71,6 +68,8 @@ public class Add extends BaseCommand {
             ignore.add(args.get(1));
             paid.setIgnore(ignore);
             sender.sendMessage("[PaidCommand] > §b添加成功");
+        }else {
+            Helper.sendMainHelp(sender);
         }
     }
 

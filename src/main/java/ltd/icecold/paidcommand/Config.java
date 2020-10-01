@@ -1,6 +1,7 @@
 package ltd.icecold.paidcommand;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ltd.icecold.paidcommand.utils.IOUtil;
 import org.bukkit.command.CommandSender;
@@ -52,19 +53,19 @@ public class Config {
         }
         paidList.remove(oldPaid);
         paidList.add(newPaid);
-        String json = new Gson().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
+        String json = new GsonBuilder().setPrettyPrinting().create().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
         IOUtil.rewriteFile(new File(PaidCommand.getInstance().getDataFolder(), "paid.json"),json);
     }
 
     public static void addPaid(PaidBean newPaid){
         paidList.add(newPaid);
-        String json = new Gson().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
+        String json = new GsonBuilder().setPrettyPrinting().create().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
         IOUtil.rewriteFile(new File(PaidCommand.getInstance().getDataFolder(), "paid.json"),json);
     }
 
     public static void delPaid(PaidBean paid){
         paidList.remove(paid);
-        String json = new Gson().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
+        String json = new GsonBuilder().setPrettyPrinting().create().toJson(paidList, new TypeToken<List<PaidBean>>() {}.getType());
         IOUtil.rewriteFile(new File(PaidCommand.getInstance().getDataFolder(), "paid.json"),json);
     }
 }

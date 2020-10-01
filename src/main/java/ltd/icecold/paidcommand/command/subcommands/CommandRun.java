@@ -47,9 +47,11 @@ public class CommandRun extends BaseCommand {
                 if (CommandListener.paid(player,paidBean.getCost(),paidBean.getType())){
                     CommandListener.runCommand(paidBean,player,command);
                 }
+                return;
             }
         }
 
+        sender.sendMessage("[PaidCommand] > §c未找到该付费指令");
     }
 
     @Override
