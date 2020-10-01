@@ -15,10 +15,7 @@ public class CommandListener implements Listener {
     @EventHandler
     public void commandListen(PlayerCommandPreprocessEvent event){
         if (!PaidCommand.getInstance().getConfig().getBoolean("paidcommand.enable")){
-            if (event.isCancelled()){
-                event.setCancelled(false);
-                return;
-            }
+            event.setCancelled(false);
             return;
         }
         Player player = event.getPlayer();
@@ -56,21 +53,21 @@ public class CommandListener implements Listener {
         if ("coin".equals(type)){
             VaultHandle vaultHandle = new VaultHandle();
             if (!vaultHandle.hasMoney(player,cost)){
-                player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.coin.notEnough").replace("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(vaultHandle.getMoney(player))));
+                player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.coin.notEnough").replaceAll("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(vaultHandle.getMoney(player))));
                 return false;
             }
             vaultHandle.delMoney(player,cost);
-            player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.coin.success").replace("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(vaultHandle.getMoney(player))));
+            player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.coin.success").replaceAll("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(vaultHandle.getMoney(player))));
             return true;
         }
-        if ("point".equals(type) && Bukkit.getServer().getPluginManager().getPlugin("PlayerPoints").isEnabled()) {
+        if ("point".equals(type) && PaidCommand.isPlayerPoint) {
             PlayerPointsUtil playerPointsUtil = new PlayerPointsUtil();
             if (playerPointsUtil.getMoney(player.getName()) < cost) {
-                player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.point.notEnough").replace("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(playerPointsUtil.getMoney(player.getName()))));
+                player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.point.notEnough").replaceAll("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(playerPointsUtil.getMoney(player.getName()))));
                 return false;
             }
             playerPointsUtil.payPoints(player.getName(),cost);
-            player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.point.success").replace("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(playerPointsUtil.getMoney(player.getName()))));
+            player.sendMessage(PaidCommand.getInstance().getConfig().getString("language.point.success").replaceAll("\\$\\{MONEY\\}",String.valueOf(cost)).replaceAll("\\$\\{NOW\\}",String.valueOf(playerPointsUtil.getMoney(player.getName()))));
             return true;
         }else {
             throw new NullPointerException("PlayerPoints未加载");

@@ -1,6 +1,6 @@
-name: Paidcommand
+name: PaidCommand
 version: ${project.version}
-main: ltd.icecold.paidcommand.Paidcommand
+main: ltd.icecold.paidcommand.PaidCommand
 depend: [Vault]
 authors: [icecold]
 description: 付费指令

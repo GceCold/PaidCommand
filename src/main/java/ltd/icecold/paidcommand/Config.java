@@ -16,7 +16,7 @@ public class Config {
     public static List<PaidBean> paidList;
     public static void init(){
         File file = new File(PaidCommand.getInstance().getDataFolder(), "paid.json");
-        if (file.exists()){
+        if (!file.exists()){
             PaidCommand.getInstance().saveResource("paid.json",false);
         }
         String data = IOUtil.readFile(file);

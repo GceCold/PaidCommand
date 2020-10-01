@@ -18,11 +18,11 @@ public final class PaidCommand extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         setupEconomy();
-        if (getServer().getPluginManager().getPlugin("PlayerPoints").isEnabled()){
+        if (getServer().getPluginManager().getPlugin("PlayerPoints") != null){
             isPlayerPoint = hookPlayerPoints();
         }
         Config.init();
-        Bukkit.getPluginCommand("pc").setExecutor(new CommandHandler());
+        Bukkit.getPluginCommand("pc").setExecutor(CommandHandler.instance);
         Bukkit.getPluginManager().registerEvents(new CommandListener(),this);
         Bukkit.getServer().getConsoleSender().sendMessage("§7[PaidCommand§7] §l§b> 付费指令插件已加载");
         Bukkit.getServer().getConsoleSender().sendMessage("§7[PaidCommand§7] §l§b> 作者：冰冷  QQ:736131306");

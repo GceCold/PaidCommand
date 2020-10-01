@@ -20,6 +20,7 @@ public class Add extends BaseCommand {
             sender.sendMessage("[PaidCommand] > §c您没有权限");
             return;
         }
+        System.out.println(args.size());
         if ("paid".equals(args.get(0))){
             if (args.size() < 4){
                 Helper.sendMainHelp(sender);

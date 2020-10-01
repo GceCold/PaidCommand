@@ -14,7 +14,7 @@ public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String cmd, String[] args) {
-        if(command.getName().contentEquals("music")) {
+        if(command.getName().contentEquals("pc")) {
             if(args.length != 0) {
                 if("help".equalsIgnoreCase(args[0])) {
                     Helper.sendMainHelp(sender);
